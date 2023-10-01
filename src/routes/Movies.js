@@ -41,9 +41,9 @@ const MoviesGrid = styled.div`
   top: -20px;
 `;
 const PosterContainer = styled.div`
-  height: 400px;
   border-radius: 20px;
   width: 100%;
+  aspect-ratio: 2/3;
   background-color: transparent;
   transition: transform 0.16s ease-out;
   box-shadow: 4px 12px 20px 6px rgba(0, 0, 0, 0.2);

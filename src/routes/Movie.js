@@ -1,7 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { RxStarFilled } from "react-icons/rx";
+import { RxStarFilled, RxHome } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 const GET_MOVIE = gql`
   query getMovie($movieId: String!) {
@@ -23,6 +24,13 @@ const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   color: white;
+`;
+const HomeIcon = styled(RxHome)`
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-size: 30px;
 `;
 const Info = styled.div`
   margin-left: 10px;
@@ -46,7 +54,7 @@ const Rating = styled.div`
 `;
 const Image = styled.div`
   width: 40%;
-  height: 60%;
+  aspect-ratio: 2/3;
   background-color: transparent;
   background-image: url(${(props) => props.image});
   background-size: cover;
@@ -64,6 +72,9 @@ const Movie = () => {
   });
   return (
     <Container>
+      <Link to={`/`}>
+        <HomeIcon />
+      </Link>
       <Info>
         <Title>{loading ? "Loading..." : `${data.movie?.title}`}</Title>
         <Subtitle>
